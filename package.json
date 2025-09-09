@@ -38,7 +38,9 @@
     ],
     "nodes": [
       "dist/nodes/ExampleNode/ExampleNode.node.js",
-      "dist/nodes/HttpBin/HttpBin.node.js"
+      "dist/nodes/HttpBin/HttpBin.node.js",
+      "dist/nodes/WorkflowAsNode/WorkflowAsNodeTrigger.node.js",
+      "dist/nodes/WorkflowAsNode/ExecuteWorkflowAsNode.node.js"
     ]
   },
   "devDependencies": {
