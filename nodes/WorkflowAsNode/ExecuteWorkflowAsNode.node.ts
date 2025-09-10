@@ -1,4 +1,5 @@
 import {
+	NodeOperationError,
 	type IExecuteFunctions,
 	type INodeExecutionData,
 	type INodeType,
@@ -36,7 +37,7 @@ export class ExecuteWorkflowAsNode implements INodeType {
 				type: 'json',
 				default: '',
 				required: true,
-				description: 'Paste the configuration JSON from the trigger node here.',
+				description: 'Paste the configuration JSON from the trigger node here',
 			},
 		],
 	};
@@ -84,7 +85,7 @@ export class ExecuteWorkflowAsNode implements INodeType {
 
 	async execute(this: IExecuteFunctions): Promise<INodeExecutionData[][]> {
 		const workflowId = this.getNodeParameter('workflowId', 0) as string;
-		if (!workflowId) throw new Error('No workflow ID selected.');
+		if (!workflowId) throw new NodeOperationError(this.getNode(), 'No workflow ID selected.');
 
 		const allParameters = this.getNode().parameters;
 		const executionData: { [key: string]: any } = {};

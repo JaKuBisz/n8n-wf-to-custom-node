@@ -28,7 +28,7 @@ export class WorkflowAsNodeTrigger implements INodeType {
 				default: 'Define the methods and input fields for this workflow below. Then, copy the generated JSON from the "Node Configuration" field and paste it into the "Execute Workflow as Node" node.',
 			},
 			{
-				displayName: 'Methods (as a JSON object)',
+				displayName: 'Methods (as a JSON Object)',
 				name: 'methods',
 				type: 'json',
 				default: '{\n  "action": {\n    "displayName": "Action",\n    "options": [\n      { "name": "Get", "value": "get" },\n      { "name": "Update", "value": "update" }\n    ]\n  }\n}',
@@ -41,17 +41,17 @@ export class WorkflowAsNodeTrigger implements INodeType {
 				placeholder: 'Add Input Field',
 				default: {},
 				typeOptions: { multipleValues: true },
-				description: 'Define the input fields that will be available.',
+				description: 'Define the input fields that will be available',
 				options: [
 					{
 						displayName: 'Field',
 						name: 'field',
 						values: [
+							{ displayName: 'Default Value', name: 'default', type: 'string', default: '' },
 							{ displayName: 'Field Name', name: 'displayName', type: 'string', default: '' },
+							{ displayName: 'Show When...', name: 'showWhen', type: 'json', default: '{ "action": "get" }', description: 'JSON object where keys are method technical names and values are the required option values'},
 							{ displayName: 'Technical Name', name: 'name', type: 'string', default: '' },
 							{ displayName: 'Type', name: 'type', type: 'options', options: [ { name: 'String', value: 'string' }, { name: 'Number', value: 'number' }, { name: 'Boolean', value: 'boolean' }], default: 'string' },
-							{ displayName: 'Default Value', name: 'default', type: 'string', default: '' },
-							{ displayName: 'Show When...', name: 'showWhen', type: 'json', default: '{ "action": "get" }', description: 'JSON object where keys are method technical names and values are the required option values.'},
 						],
 					},
 				],
@@ -62,7 +62,7 @@ export class WorkflowAsNodeTrigger implements INodeType {
 				type: 'json',
 				typeOptions: { readOnly: true },
 				default: '={{({ "methods": $parameter.methods, "inputFields": $parameter.inputFields.field })}}',
-				description: 'Copy the JSON object below and paste it into the "Configuration" field of the "Execute Workflow as Node" node.',
+				description: 'Copy the JSON object below and paste it into the "Configuration" field of the "Execute Workflow as Node" node',
 			},
 		],
 	};
