@@ -61,7 +61,7 @@ export class WorkflowAsNodeTrigger implements INodeType {
 				name: 'nodeConfig',
 				type: 'json',
 				typeOptions: { readOnly: true },
-				default: '={{({ "methods": $parameter.methods, "inputFields": $parameter.inputFields.field })}}',
+				default: '={{JSON.stringify({ "methods": JSON.parse($parameter.methods), "inputFields": $parameter.inputFields.field })}}',
 				description: 'Copy the JSON object below and paste it into the "Configuration" field of the "Execute Workflow as Node" node',
 			},
 		],
