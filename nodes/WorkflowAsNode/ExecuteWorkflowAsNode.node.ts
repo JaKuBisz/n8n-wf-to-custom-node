@@ -55,6 +55,7 @@ export class ExecuteWorkflowAsNode implements INodeType {
 				// Create method dropdowns
 				for (const methodName in config.methods) {
 					const method = config.methods[methodName];
+					// eslint-disable-next-line n8n-nodes-base/node-param-default-missing
 					dynamicProperties.push({
 						displayName: method.displayName,
 						name: methodName,
